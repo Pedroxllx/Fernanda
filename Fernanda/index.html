@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário, Meu Amor! ❤️ | Para a Fernanda</title>
+
+    <!-- Meta tags e OpenGraph para compartilhamento no WhatsApp/Instagram -->
+    <meta name="description"
+        content="Um cantinho especial na internet feito com todo o amor do mundo para comemorar o aniversário da Fernanda.">
+    <meta property="og:title" content="Feliz Aniversário, Meu Amor! ❤️">
+    <meta property="og:description" content="Preparei uma surpresa especial para você. Clique para abrir!">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#ff758f">
+
+    <!-- Google Fonts: Elegância moderna e toques manuscritos românticos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons & Canvas Confetti CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Canvas animado de corações e partículas de fundo -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Barra de navegação flutuante delicada -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="heart-pulse">❤️</span> Fernanda & Pedro
+            </a>
+            <ul class="nav-links">
+                <li><a href="#contador"><i data-lucide="clock"></i> Tempo Juntos</a></li>
+                <li><a href="#carta"><i data-lucide="mail"></i> Cartinha</a></li>
+                <li><a href="#fotos"><i data-lucide="image"></i> Nossas Fotos</a></li>
+                <li><a href="#musicas"><i data-lucide="music"></i> Nossas Musicas</a></li>
+                <li><a href="#motivos"><i data-lucide="heart"></i> Motivos</a></li>
+                <li><a href="#momentos"><i data-lucide="calendar-heart"></i> Momentos</a></li>
+            </ul>
+            <button class="celebrate-nav-btn" id="navCelebrateBtn" title="Soltar confetes de amor!">
+                <i data-lucide="sparkles"></i> <span>Comemorar!</span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- SEÇÃO HERO -->
+        <section class="hero-section" id="hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i data-lucide="sparkles"></i> Especial de Aniversário <i data-lucide="sparkles"></i>
+                </div>
+                <h1 class="hero-title">
+                    Feliz Aniversário, <span class="highlight-name">Meu Amor!</span>
+                </h1>
+                <p class="hero-subtitle">
+                    O melhor dia e mais especial da minha vida, foi o dia no qual você nasceu.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#carta" class="btn btn-primary">
+                        <i data-lucide="mail-open"></i> Abrir Minha Carta
+                    </a>
+                    <a href="#fotos" class="btn btn-secondary">
+                        <i data-lucide="camera"></i> Ver Nossas Fotos
+                    </a>
+                    <a href="#musicas" class="btn btn-tertiary">
+                        <i data-lucide="disc-3"></i> Nossas Músicas
+                    </a>
+                </div>
+
+                <div class="scroll-indicator">
+                    <span>Role para descobrir mais amor</span>
+                    <i data-lucide="chevron-down" class="bounce"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CONTADOR DE TEMPO JUNTOS -->
+        <section class="counter-section" id="contador">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i data-lucide="infinity"></i> Cada Segundo Conta</span>
+                    <h2 class="section-title">O Tempo ao Seu Lado</h2>
+                    <p class="section-description">
+                        Desde o dia 6 de julho de 2025, quando começamos a namorar, cada segundo se tornou os melhores
+                        segundos da minha vida.
+                    </p>
+                </div>
+
+                <div class="counter-wrapper">
+                    <div class="counter-grid">
+                        <div class="counter-card">
+                            <span class="counter-value" id="count-years">0</span>
+                            <span class="counter-label">Anos</span>
+                        </div>
+                        <div class="counter-card">
+                            <span class="counter-value" id="count-months">0</span>
+                            <span class="counter-label">Meses</span>
+                        </div>
+                        <div class="counter-card">
+                            <span class="counter-value" id="count-days">0</span>
+                            <span class="counter-label">Dias</span>
+                        </div>
+                        <div class="counter-card">
+                            <span class="counter-value" id="count-hours">00</span>
+                            <span class="counter-label">Horas</span>
+                        </div>
+                        <div class="counter-card">
+                            <span class="counter-value" id="count-minutes">00</span>
+                            <span class="counter-label">Minutos</span>
+                        </div>
+                        <div class="counter-card highlight-card">
+                            <span class="counter-value" id="count-seconds">00</span>
+                            <span class="counter-label">Segundos</span>
+                        </div>
+                    </div>
+                    <p class="counter-footer-note">
+                        ...e eu escolheria você mais um milhão de vezes em cada um desses segundos. 💕
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CARTA DE AMOR INTERATIVA -->
+        <section class="letter-section" id="carta">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i data-lucide="heart-handshake"></i> Do Fundo do Meu Coração</span>
+                    <h2 class="section-title">Uma Cartinha Para Você, Minha Lindinha</h2>
+                    <p class="section-description">Clique no envelope para ler o que eu sinto por você.</p>
+                </div>
+
+                <div class="envelope-container" id="envelopeWrapper">
+                    <div class="envelope" id="envelope">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-pocket"></div>
+                        <div class="wax-seal" id="waxSeal">
+                            <span>❤️</span>
+                        </div>
+                        <div class="letter-preview-tip">
+                            <i data-lucide="mouse-pointer-click"></i> Clique para abrir
+                        </div>
+                    </div>
+
+                    <!-- Carta expandida que desliza ou abre como modal sofisticado -->
+                    <div class="letter-paper" id="letterPaper">
+                        <div class="letter-header">
+                            <span class="letter-date" id="letterDate">Para o amor PARA a minha vida</span>
+                            <button class="close-letter-btn" id="closeLetterBtn" aria-label="Fechar carta">
+                                <i data-lucide="x"></i>
+                            </button>
+                        </div>
+                        <div class="letter-body">
+                            <h3 class="letter-greeting">Meu amor</h3>
+                            <p>
+                                Hoje é o seu dia, mas quem ganhou o maior presente de todos fui eu, por ter você na
+                                minha vida.
+                            </p>
+                            <p>
+                                Quero que hoje você se lembre do quão incrível você é, quão linda e quão perfeita você
+                                é, eu sou a pessoa mais orgulhosa por namorar uma pessoa tão esforçada igual a você.
+                            </p>
+                            <p>
+                                Quero que você aproveite esse dia, que você sorria, que você se divirta muito e acima de
+                                tudo, sempre continue sendo a pessoa inrcivel q você é, sempre levando tudo com a
+                                maturidade que você tem.
+                            </p>
+                            <p>
+                                Obrigado por cada abraço, cada risada, cada conversa boba e cada momento. Eu prometo
+                                estar sempre aqui para te apoiar, te fazer sorrir e te lembrar,
+                                todos os dias, do quanto você é amada.
+                            </p>
+                            <p class="letter-sign">
+                                Com todo o meu amor e carinho,<br>
+                                <strong>Seu Amor ❤️</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO GALERIA DE FOTOS POLAROID -->
+        <section class="photos-section" id="fotos">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i data-lucide="camera"></i> Nossas Fotinhas</span>
+                    <h2 class="section-title">Os Melhores Momentos são sempre ao seu lado</h2>
+                    <p class="section-description">
+                        Só alguns dos instantes que guardo para sempre. Clique em qualquer foto para ver em tamanho
+                        real!
+                    </p>
+                    <div class="photo-controls">
+                        <button class="btn-sm" id="openAddPhotoModalBtn">
+                            <i data-lucide="image-plus"></i> Personalizar / Adicionar Fotos
+                        </button>
+                    </div>
+                </div>
+
+                <div class="polaroid-grid" id="polaroidGrid">
+                    <!-- As fotos são carregadas dinamicamente pelo script.js para facilitar a troca -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO TRILHA SONORA & SPOTIFY COM LEGENDAS -->
+        <section class="music-section" id="musicas">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i data-lucide="headphones"></i> Nossa Trilha Sonora</span>
+                    <h2 class="section-title">Músicas do Spotify & Nossas Histórias</h2>
+                    <p class="section-description">
+                        Músicas que têm cheiro de você, gosto dos nossos dias juntos e letras que parecem falar de nós.
+                    </p>
+                </div>
+
+                <div class="spotify-showcase">
+                    <!-- Seletor de faixas -->
+                    <div class="track-playlist-selector" id="trackSelector">
+                        <!-- Gerado via JS -->
+                    </div>
+
+                    <!-- Player em destaque com vitrola giratória e cartão de legenda -->
+                    <div class="player-experience-card">
+                        <div class="player-left">
+                            <div class="vinyl-record-container">
+                                <div class="turntable-arm" id="turntableArm"></div>
+                                <div class="vinyl-disc spinning" id="vinylDisc">
+                                    <div class="vinyl-grooves"></div>
+                                    <div class="vinyl-center-label" id="vinylCenterLabel">
+                                        <span class="vinyl-note">🎵</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="track-details-badge">
+                                <span class="badge-status"><span class="live-dot"></span> Tocando agora no
+                                    Spotify</span>
+                                <h4 id="activeTrackTitle">Nome da Música</h4>
+                                <p id="activeTrackArtist">Artista</p>
+                            </div>
+                        </div>
+
+                        <div class="player-right">
+                            <!-- Legenda romântica personalizada solicitada pelo usuário -->
+                            <div class="song-caption-box">
+                                <div class="caption-header">
+                                    <i data-lucide="quote" class="quote-icon"></i>
+                                    <span>O que essa música significa para nós:</span>
+                                </div>
+                                <p class="song-caption-text" id="activeTrackCaption">
+                                    "Essa música sempre toca no meu coração quando penso em você..."
+                                </p>
+                                <div class="song-lyrics-highlight" id="activeTrackLyrics">
+                                    "Você é a poesia mais linda que a vida já escreveu."
+                                </div>
+                            </div>
+
+                            <!-- Embed oficial do Spotify interativo -->
+                            <div class="spotify-embed-container" id="spotifyEmbedContainer">
+                                <iframe id="spotifyIframe" style="border-radius:14px"
+                                    src="https://open.spotify.com/embed/track/0zLs0xjw4MYcMiXHsOvSgk?utm_source=generator&theme=0"
+                                    width="100%" height="152" frameBorder="0" allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO POTE DE MOTIVOS PARA TE AMAR -->
+        <section class="reasons-section" id="motivos">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i data-lucide="sparkle"></i> Infinitas Razões</span>
+                    <h2 class="section-title">O Pote dos Motivos</h2>
+                    <p class="section-description">
+                        São tantos motivos para te amar que não caberiam na internet inteira. Clique no pote para
+                        sortear um!
+                    </p>
+                </div>
+
+                <div class="jar-interactive-container">
+                    <div class="love-jar-card" id="loveJarBtn">
+                        <div class="jar-glow"></div>
+                        <div class="jar-illustration">
+                            <span class="jar-lid"></span>
+                            <span class="jar-body">
+                                <span class="floating-jar-heart h1">💖</span>
+                                <span class="floating-jar-heart h2">✨</span>
+                                <span class="floating-jar-heart h3">💕</span>
+                                <span class="floating-jar-heart h4">🌸</span>
+                                <span class="floating-jar-heart h5">❤️</span>
+                            </span>
+                        </div>
+                        <span class="jar-tag">Toque no Pote!</span>
+                    </div>
+
+                    <div class="reason-display-card" id="reasonDisplayCard">
+                        <div class="reason-bubble">
+                            <span class="reason-index-badge" id="reasonIndex">Motivo #1</span>
+                            <p class="reason-text" id="reasonText">
+                                "O jeito como o seu sorriso ilumina qualquer lugar e me traz paz instantânea."
+                            </p>
+                        </div>
+                        <button class="btn btn-primary btn-sm" id="nextReasonBtn">
+                            <i data-lucide="refresh-cw"></i> Quero outro motivo!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO NOSSA LINHA DO TEMPO -->
+        <section class="timeline-section" id="momentos">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag"><i data-lucide="book-heart"></i> Nossa História</span>
+                    <h2 class="section-title">Capítulos do Nosso Amor</h2>
+                    <p class="section-description">
+                        Passo a passo, construindo os dias mais felizes da minha vida.
+                    </p>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+
+                    <div class="timeline-item left">
+                        <div class="timeline-dot"><i data-lucide="sparkles"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">O Começo de Tudo</span>
+                            <h3>O Dia em que você me seguiu</h3>
+                            <p>Eu não sabia naquele momento, mas o meu mundo estava prestes a mudar para sempre da
+                                melhor forma possível.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right">
+                        <div class="timeline-dot"><i data-lucide="coffee"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Nosso Primeiro Encontro</span>
+                            <h3>Aquele Friozinho na Barriga</h3>
+                            <p>Tudo passou tão rapido, mas mesmo assim eu me lembro como se fosse hoje nosso primeiro
+                                abraço.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item left">
+                        <div class="timeline-dot"><i data-lucide="heart"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Primeiro Beijo</span>
+                            <h3>O Selinho Mais Fofo Do Mundo</h3>
+                            <p>O momento exato em que tudo fez sentido.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item right">
+                        <div class="timeline-dot"><i data-lucide="heart-handshake"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">06 de Julho de 2025</span>
+                            <h3>O Início do Nosso Namoro 💕</h3>
+                            <p>O dia em que começamos oficialmente a nossa história de amor. 06/07/2025!</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item left">
+                        <div class="timeline-dot"><i data-lucide="smile"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Tantos Momentos Juntos</span>
+                            <h3>Tempo Juntos</h3>
+                            <p>Passar cada segundo ao seu lado e aproveitar tudo como se não houvesse amanhã.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item highlight-item right">
+                        <div class="timeline-dot star-dot"><i data-lucide="party-popper"></i></div>
+                        <div class="timeline-content highlight-content">
+                            <span class="timeline-date">Hoje</span>
+                            <h3>O Seu Aniversário! 🎉</h3>
+                            <p>Celebrando mais um ciclo da pessoa mais maravilhosa que eu conheço. Que venham infinitos
+                                aniversários juntos!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO FINAL DE SURPRESA & CELEBRAÇÃO -->
+        <section class="celebration-section">
+            <div class="section-container">
+                <div class="celebration-box">
+                    <div class="celebration-icon-wrapper">
+                        <span class="big-gift-icon">🎁</span>
+                    </div>
+                    <h2>Você é o Amor da Minha Vida</h2>
+                    <p>
+                        Que o seu aniversário seja tão radiante e especial quanto você é para mim.
+                    </p>
+                    <button class="btn btn-celebrate" id="grandCelebrateBtn">
+                        <i data-lucide="sparkles"></i> Clique para uma Explosão de Amor! <i data-lucide="sparkles"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ ROMÂNTICO -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="footer-copy">
+                Feito com todo o amor do mundo para a <strong>Fernanda</strong> por <strong>Pedro</strong> ❤️
+            </p>
+            <p class="footer-sub">
+                Para sempre e mais um dia. ✨
+            </p>
+        </div>
+    </footer>
+
+    <!-- MODAL DE LIGHTBOX PARA FOTOS -->
+    <div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+        <div class="lightbox-overlay" id="lightboxOverlay"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Fechar">
+                <i data-lucide="x"></i>
+            </button>
+            <button class="lightbox-nav prev" id="lightboxPrevBtn" aria-label="Anterior">
+                <i data-lucide="chevron-left"></i>
+            </button>
+            <div class="lightbox-image-wrapper">
+                <img id="lightboxImg" src="" alt="Foto expandida">
+                <div class="lightbox-caption">
+                    <h4 id="lightboxTitle">Título do Momento</h4>
+                    <p id="lightboxDesc">Legenda da foto</p>
+                    <button class="lightbox-delete-btn" id="lightboxDeleteBtn" type="button"
+                        title="Excluir esta foto do álbum">
+                        <i data-lucide="trash-2"></i> Excluir esta foto
+                    </button>
+                </div>
+            </div>
+            <button class="lightbox-nav next" id="lightboxNextBtn" aria-label="Próxima">
+                <i data-lucide="chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL DE PERSONALIZAÇÃO DE FOTOS E MÚSICAS -->
+    <div class="customizer-modal" id="customizerModal" aria-hidden="true">
+        <div class="customizer-overlay" id="customizerOverlay"></div>
+        <div class="customizer-dialog">
+            <div class="customizer-header">
+                <h3><i data-lucide="sliders-horizontal"></i> Personalizar Fotos & Detalhes</h3>
+                <button class="customizer-close" id="customizerCloseBtn"><i data-lucide="x"></i></button>
+            </div>
+            <div class="customizer-body">
+                <p class="customizer-help">
+                    Você pode adicionar suas próprias fotos aqui para visualizar na hora, ou salvar imagens na pasta
+                    <code>images/</code> do projeto!
+                </p>
+
+                <form id="addPhotoForm" class="customizer-form">
+                    <div class="form-group">
+                        <label for="newPhotoTitle">Título do Momento</label>
+                        <input type="text" id="newPhotoTitle" placeholder="Ex: Nosso piquenique no parque" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPhotoCaption">Legenda carinhosa</label>
+                        <input type="text" id="newPhotoCaption"
+                            placeholder="Ex: Aquele dia que rimos até a barriga doer..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPhotoFile">Carregar Foto do Computador / Celular</label>
+                        <input type="file" id="newPhotoFile" accept="image/*">
+                        <span class="input-hint">Ou insira uma URL de imagem abaixo:</span>
+                        <input type="url" id="newPhotoUrl" placeholder="https://exemplo.com/foto.jpg">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i data-lucide="plus-circle"></i> Adicionar ao Álbum
+                    </button>
+                </form>
+
+                <!-- Seção de Gerenciar Fotos Existentes -->
+                <div class="customizer-manage-section">
+                    <div class="customizer-manage-header">
+                        <h4><i data-lucide="images"></i> Fotos no Álbum (<span id="photoCountBadge">0</span>)</h4>
+                        <button type="button" class="btn-clean-action" id="cleanExamplesBtn"
+                            title="Remover fotos de exemplo">
+                            <i data-lucide="sparkles"></i> Limpar Fotos de Exemplo
+                        </button>
+                    </div>
+                    <div class="customizer-photo-list" id="customizerPhotoList">
+                        <!-- Renderizado via JS -->
+                    </div>
+                    <div class="customizer-actions-row">
+                        <button type="button" class="btn-clean-action" id="exportPhotosBtn"
+                            title="Copiar código para colar no script.js">
+                            <i data-lucide="copy"></i> Copiar Código para o script.js
+                        </button>
+                    </div>
+                </div>
+
+                <div class="customizer-tips">
+                    <h4>💡 Dica para colocar fotos fixas:</h4>
+                    <p>Você pode colocar suas fotos na pasta <code>images/</code> (ex: <code>images/foto1.jpg</code>) e
+                        alterar a lista no arquivo <code>script.js</code>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script principal -->
+    <script src="script.js"></script>
+</body>
+
+</html>
